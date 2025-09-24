@@ -35,3 +35,17 @@ FROM sales
 JOIN products USING(product_id)
 GROUP BY customer_id;
 
+2. **Cumulative Sales per Customer**
+SELECT customer_id, sale_date,
+       SUM(quantity*price) OVER(PARTITION BY customer_id ORDER BY sale_date) AS cumulative_sales
+FROM sales
+JOIN products USING(product_id);
+
+3.**Moving Average of Daily Sales**
+SELECT sale_date,
+       AVG(quantity*price) OVER(ORDER BY sale_date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW) AS moving_avg
+FROM sales
+JOIN products USING(product_id);
+
+
+
