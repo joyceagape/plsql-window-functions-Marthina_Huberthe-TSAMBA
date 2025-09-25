@@ -47,5 +47,9 @@ SELECT sale_date,
 FROM sales
 JOIN products USING(product_id);
 
+## Integrity Statement
+I certify that this submission is entirely my own work, with some sources that i've used to built it. Philippians:4:13 <<I can do all things through christ who strengthens me>>
+
+
 
 
